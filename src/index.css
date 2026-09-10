@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pc-brand: #238a51;
+    --pc-brand-dark: #1c6e42;
+    --pc-brand-light: #58bf82;
+    --pc-accent: #f97316;
+    --pc-accent-dark: #ea5a0c;
+    --pc-whatsapp: #25d366;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply font-sans text-gray-600 antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-gray-900;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* ---- Section heading eyebrow ---- */
+  .section-eyebrow {
+    @apply mb-3 inline-block text-xs font-bold uppercase tracking-[0.15em] text-accent-600;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-gray-900 sm:text-3xl lg:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mx-auto mt-3 max-w-2xl text-base leading-relaxed text-gray-500;
+  }
+
+  /* ---- Card system ---- */
+  .pc-card {
+    @apply rounded-3xl border border-gray-100/80 bg-white shadow-card transition-all duration-300;
+  }
+
+  .pc-card-hover {
+    @apply hover:-translate-y-1.5 hover:shadow-card-hover hover:border-brand-100;
+  }
+
+  /* ---- Buttons ---- */
+  .pc-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 active:scale-[0.97];
+  }
+
+  .pc-btn-wa {
+    @apply pc-btn bg-whatsapp text-white shadow-lg shadow-whatsapp/25 hover:bg-whatsapp-dark hover:shadow-glow-brand;
+  }
+
+  .pc-btn-outline {
+    @apply pc-btn border-2 border-brand-200 bg-white text-brand-700 hover:border-brand-300 hover:bg-brand-50;
+  }
+
+  .pc-btn-light {
+    @apply pc-btn border border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20;
+  }
+
+  .pc-btn-dark {
+    @apply pc-btn bg-gray-900 text-white hover:bg-gray-800;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+}
